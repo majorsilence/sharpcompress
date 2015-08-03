@@ -76,7 +76,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SharpCompress.pfx</AssemblyOriginatorKeyFile>
@@ -288,6 +288,7 @@
     <Compile Include="Archive\Rar\SeekableFilePart.cs" />
     <Compile Include="Reader\Rar\SingleVolumeRarReader.cs" />
     <Compile Include="Common\ArchiveType.cs" />
+    <Compile Include="Reader\SevenZip\SevenZipReader.cs" />
     <Compile Include="Reader\Tar\TarReader.cs" />
     <Compile Include="ReadOnlyCollection.cs" />
     <Compile Include="VersionInfo.cs" />
@@ -356,6 +357,7 @@
     <Compile Include="Writer\GZip\GZipWriter.cs" />
     <Compile Include="Writer\IWriter.Extensions.cs" />
     <Compile Include="Writer\IWriter.cs" />
+    <Compile Include="Writer\SevenZip\SevenZipWriter.cs" />
     <Compile Include="Writer\Tar\TarWriter.cs" />
     <Compile Include="Writer\WriterFactory.cs" />
     <Compile Include="Writer\Zip\ZipCentralDirectoryEntry.cs" />

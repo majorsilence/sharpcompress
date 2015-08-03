@@ -4,6 +4,7 @@ using SharpCompress.Common;
 using SharpCompress.Writer.GZip;
 using SharpCompress.Writer.Tar;
 using SharpCompress.Writer.Zip;
+using SharpCompress.Writer.SevenZip;
 
 namespace SharpCompress.Writer
 {
@@ -36,6 +37,10 @@ namespace SharpCompress.Writer
                 case ArchiveType.Tar:
                     {
                         return new TarWriter(stream, compressionInfo);
+                    } 
+                case ArchiveType.SevenZip:
+                    {         
+                        return new SevenZipWriter(stream);
                     }
                 default:
                     {

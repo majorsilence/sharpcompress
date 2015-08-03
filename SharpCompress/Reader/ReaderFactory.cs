@@ -4,6 +4,7 @@ using SharpCompress.Archive.GZip;
 using SharpCompress.Archive.Rar;
 using SharpCompress.Archive.Tar;
 using SharpCompress.Archive.Zip;
+using SharpCompress.Archive.SevenZip;
 using SharpCompress.Common;
 using SharpCompress.Compressor;
 using SharpCompress.Compressor.BZip2;
@@ -12,6 +13,7 @@ using SharpCompress.Reader.GZip;
 using SharpCompress.Reader.Rar;
 using SharpCompress.Reader.Tar;
 using SharpCompress.Reader.Zip;
+using SharpCompress.Reader.SevenZip;
 using GZipStream = SharpCompress.Compressor.Deflate.GZipStream;
 
 namespace SharpCompress.Reader
@@ -72,6 +74,13 @@ namespace SharpCompress.Reader
             {
                 rewindableStream.Rewind(true);
                 return RarReader.Open(rewindableStream, options);
+            }
+
+            rewindableStream.Rewind(false);
+            if (SevenZipArchive.IsSevenZipFile(rewindableStream))
+            {
+                rewindableStream.Rewind(true);
+                return SevenZipReader.Open(rewindableStream, options);
             }
 
             throw new InvalidOperationException("Cannot determine compressed stream type.  Supported Reader Formats: Zip, GZip, BZip2, Tar, Rar");
